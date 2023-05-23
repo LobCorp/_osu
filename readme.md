@@ -13,18 +13,18 @@
 
 ### 界面
 #### 开始界面
-Start Button
-Option Button
+Start Button \\
+Option Button \\
 #### 主界面
-滑块动画
-分数 & combo
-特效（perfect,good,miss）
+滑块动画 \\
+分数 & combo \\
+特效（perfect,good,miss） \\
 #### 设置界面
-难度（判定时间长短，如20ms，40ms等等）
-音轨对应按键设置
+难度（判定时间长短，如20ms，40ms等等）\\
+音轨对应按键设置\\
 #### 暂停界面
-resume
-exit
+resume\\
+exit\\
 #### 结算界面
 
 ### 特效
