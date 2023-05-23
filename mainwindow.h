@@ -29,8 +29,9 @@ public:
     void keyReleaseEvent(QKeyEvent *event);
     void Miss();
     void Correct();
-    void Correct_Long();
-    const int eps = 400;
+    void Correct_Perfect();
+    int eps = 400; // eps_good
+    int eps_perfect = 200; // eps_perfect
 
     double start_time = 0; // timer
 

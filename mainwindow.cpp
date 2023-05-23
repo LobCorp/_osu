@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     Key_num[1] = Qt :: Key_1;
     Key_num[2] = Qt :: Key_3;// I'll complete it in Option menu later
 
-    Path = "E:/Music_game/test0/Data/1.txt";
+    Path = "E:/Music_game/test0/Data/1.txt";  //Please change it manually...
 
     Read_Music_Data(Path);
 
@@ -84,7 +84,7 @@ void MainWindow :: Correct(){
     //qDebug() << "Yes!";
 }
 
-void MainWindow :: Correct_Long(){
+void MainWindow :: Correct_Perfect(){
     combo ++;
     //qDebug() << "Yes Long!";
 }
@@ -103,7 +103,11 @@ void MainWindow :: keyPressEvent(QKeyEvent *event){
                 ptr[i] ++;
             }
             if(abs(now_time - tm[i][ptr[i]].first) <= eps){
-                if(tm[i][ptr[i]].second == -1)Correct(),ptr[i]++;
+                if(tm[i][ptr[i]].second == -1){
+                    if(now_time - tm[i][ptr[i]].first <= eps_perfect)Correct_Perfect();
+                    else Correct();
+                    ptr[i]++;
+                }
             }
             else{
                 if(now_time > tm[i][ptr[i]].first)tm[i][ptr[i]].second = -1;
@@ -121,7 +125,8 @@ void MainWindow :: keyReleaseEvent(QKeyEvent *event){
             int R = tm[i][ptr[i]].second;
             if(R == -1)return;
             if(abs(now_time - R) <= eps){
-                Correct_Long();
+                if(abs(now_time - R) <= eps_perfect)
+                    Correct_Perfect();
             }
             else{
                 Miss();
